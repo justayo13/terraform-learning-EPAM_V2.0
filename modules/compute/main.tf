@@ -1,16 +1,16 @@
 # Resource definitions for Compute Engine
 
-# Instance template for the web servers
+# Instance template for the Apache web server
 resource "google_compute_instance_template" "web_server" {
   project      = var.project_id
   name_prefix  = "${var.env}-web-server-"
   machine_type = var.machine_type
   region       = var.region
 
-  tags = ["web-server", var.env]
+  tags = [var.web_server_tag, var.env]
 
   disk {
-    source_image = "debian-cloud/debian-11"
+    source_image = var.source_image
     auto_delete  = true
     boot         = true
   }

@@ -18,3 +18,4 @@ output "subnet_self_link" {
   description = "The self_link of the subnet."
   value       = google_compute_subnetwork.subnet.self_link
 }
+
